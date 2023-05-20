@@ -1,0 +1,4 @@
+customcp.SwitchButton$2
+customcp.SwitchButton$1
+customcp.SwitchButton
+customcp.EventSwitchSelected

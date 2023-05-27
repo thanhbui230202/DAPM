@@ -5,8 +5,10 @@
  */
 package jForm;
 
+import control.QuanLyUser;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import model.User;
 
 /**
  *
@@ -14,7 +16,8 @@ import javax.swing.JOptionPane;
  */
 public class LogInFrame extends javax.swing.JFrame {
 
-    
+    User user;
+    QuanLyUser quanLyUser;
     
     /**
      * Creates new form LogInFrameTest
@@ -23,10 +26,10 @@ public class LogInFrame extends javax.swing.JFrame {
         initComponents();
         setSize(700, 449);
         setLocationRelativeTo(null);
-        
+        user = new User();
+        quanLyUser = new QuanLyUser();
         wrusername.setText(" ");
         wrpass.setText(" ");
-
     }
 
     /**
@@ -84,11 +87,11 @@ public class LogInFrame extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("BÃI");
+        jLabel5.setText("BIỂN");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("ĐỖ");
+        jLabel6.setText("SỐ");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,7 +103,6 @@ public class LogInFrame extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Copyright by WeePoo");
 
         javax.swing.GroupLayout labelBannerLayout = new javax.swing.GroupLayout(labelBanner);
         labelBanner.setLayout(labelBannerLayout);
@@ -165,7 +167,7 @@ public class LogInFrame extends javax.swing.JFrame {
 
         txtusername.setToolTipText("Nhập tên tài khoản");
         txtusername.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtusername.setLabelText("User name");
+        txtusername.setLabelText("Phone number");
         txtusername.setName(""); // NOI18N
         txtusername.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -206,7 +208,7 @@ public class LogInFrame extends javax.swing.JFrame {
             }
         });
 
-        buttonshine1.setText("Quên mật khẩu");
+        buttonshine1.setText("Sign up");
         buttonshine1.setEffectColor(new java.awt.Color(230, 230, 230));
         buttonshine1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         buttonshine1.addActionListener(new java.awt.event.ActionListener() {
@@ -308,21 +310,51 @@ public class LogInFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btlogiinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlogiinActionPerformed
-            new Main().setVisible(true);
-            this.dispose();
+        boolean duocchay = true;
+        if (String.valueOf(txtpassword.getPassword()).equals(""))
+        {
+            wrpass.setText("Nhập mật khẩu !");
+            duocchay=false;
+            txtpassword.requestFocus(true);
+        }
+        
+        if (txtusername.getText().equals(""))
+        {
+            wrusername.setText("Nhập sdt !");
+            duocchay=false;
+            txtusername.requestFocus(true);
+        }
+        
+         if (duocchay){
+            String username=txtusername.getText();
+            String password=String.valueOf(this.txtpassword.getPassword());
+            user= QuanLyUser.checkUser(username, password);
+            if (user == null)
+            {
+                txtusername.requestFocus(true);
+                wrpass.setText("SDT hoặc mật khẩu không chính xác");
+            }
+            else
+            {
+                new Main(user).setVisible(true);
+                this.dispose();
+            }
+        }
     }//GEN-LAST:event_btlogiinActionPerformed
 
     private void txtusernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtusernameKeyTyped
         // TODO add your handling code here:
-
+        wrusername.setText(" ");
     }//GEN-LAST:event_txtusernameKeyTyped
 
     private void txtpasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpasswordKeyTyped
         // TODO add your handling code here:
+        wrpass.setText(" ");
     }//GEN-LAST:event_txtpasswordKeyTyped
 
     private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
         // TODO add your handling code here:
+        btlogiinActionPerformed(evt);
     }//GEN-LAST:event_txtpasswordActionPerformed
 
     private void buttonshine1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonshine1ActionPerformed

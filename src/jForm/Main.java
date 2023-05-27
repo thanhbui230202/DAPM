@@ -5,8 +5,11 @@
  */
 package jForm;
 
+import control.QuanLyUser;
 import java.awt.CardLayout;
 import java.awt.Color;
+import model.User;
+
 
 /**
  *
@@ -18,13 +21,32 @@ public class Main extends javax.swing.JFrame {
      * Creates new form newmain
      */
 //    int luuchon;
+    User user;
+    QuanLyUser quanLyUser;
     
     public Main() {
         initComponents();
         container.setLayout(new CardLayout());
         container.add(new QuanLyXePanel());
         resetMau();
-        chonQLXe();
+        chonQLTT();
+    }
+    
+    public Main(User userkh) {
+        initComponents();
+        
+        quanLyUser = new QuanLyUser();
+        user = new User(userkh);
+        
+        container.setLayout(new CardLayout());
+        container.add(new QuanLyThongTinPanel(user));
+        
+        if (userkh.getChucVu().equals("User"))
+        {
+            lbquanlynv.setText("Quản lý thông tin");
+        }
+        resetMau();
+        chonQLTT();
     }
     
    
@@ -126,7 +148,7 @@ public class Main extends javax.swing.JFrame {
         lbquanlyxe.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbquanlyxe.setForeground(new java.awt.Color(230, 230, 230));
         lbquanlyxe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/car.png"))); // NOI18N
-        lbquanlyxe.setText("Quản lý xe");
+        lbquanlyxe.setText("Quản lý thông tin");
 
         javax.swing.GroupLayout quanlyxepnLayout = new javax.swing.GroupLayout(quanlyxepn);
         quanlyxepn.setLayout(quanlyxepnLayout);
@@ -443,7 +465,7 @@ public class Main extends javax.swing.JFrame {
         lbtrogiup.setForeground(new Color(230,230,230));      
     }
     
-    public final void chonQLXe(){
+    public final void chonQLTT(){
         sidepn1.setBackground(Color.white);
         quanlyxepn.setBackground(new Color(70,70,70));
         lbquanlyxe.setForeground(Color.white);

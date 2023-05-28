@@ -31,21 +31,21 @@ public class GetConnectServer {
     
     
    
-    public static void main(String[] args) throws SQLException {
-        Connection connection = GetConnectServer.getConnection();
-        String sql = "SELECT * FROM Account";
-        PreparedStatement pstmt = connection.prepareStatement(sql);
-        QuanLyUser user = new QuanLyUser();
-        ResultSet rs = pstmt.executeQuery();
-
-        while( rs.next()) {
-            System.out.println(rs.getString(1));
-       }
-        
-        User users = new User();
-        users = user.checkUser("090","1");
-        System.out.println(users.getCccd());
-    }
+//    public static void main(String[] args) throws SQLException {
+//        Connection connection = GetConnectServer.getConnection();
+//        String sql = "SELECT * FROM Account";
+//        PreparedStatement pstmt = connection.prepareStatement(sql);
+//        QuanLyUser user = new QuanLyUser();
+//        ResultSet rs = pstmt.executeQuery();
+//
+//        while( rs.next()) {
+//            System.out.println(rs.getString(1));
+//       }
+//        
+//        User users = new User();
+//        users = user.checkUser("090","1");
+//        System.out.println(users.getCccd());
+//    }
 //    
     
 }

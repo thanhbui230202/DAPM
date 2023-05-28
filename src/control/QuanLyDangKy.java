@@ -44,6 +44,7 @@ public class QuanLyDangKy {
                dangKiMoi.setSoSeriKTCLXX(rs.getString("soSeriKTCLXX"));
                dangKiMoi.setSoToKhaiHaiQuan(rs.getString("soToKhaiHaiQuan"));
                dangKiMoi.setTinhTrangDangKi(rs.getString("tinhTrangDangKi"));               
+               dangKiMoi.setBienSoXe(rs.getString("bienSoXe"));
                
                listDangKi.add(dangKiMoi);
            }
@@ -87,8 +88,8 @@ public class QuanLyDangKy {
     public void addDangKi(DangKiBienSo dk){
          Connection con = GetConnectServer.getConnection();
          String sql = "insert into DangKiBienSo(idDangKi,tenChuXe,namSinh, diaChi, cccdChuXe, sdtNLTT, soHoaDonDienTu, maSoThue,"
-                 + "maHoSoKhaiLePhiTruocBa,soToKhaiHaiQuan,soSeriKTCLXX,gmailChuXe,idThongTinXeNo,tinhTrangDangKi,idAccountDangKi,idAccountDuyet"
-         + "VALUES(dbo.getIdDangKiNext(),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                 + "maHoSoKhaiLePhiTruocBa,soToKhaiHaiQuan,soSeriKTCLXX,gmailChuXe,idThongTinXeNo,tinhTrangDangKi,idAccountDangKi,idAccountDuyet,bienSoXe"
+         + "VALUES(dbo.getIdDangKiNext(),?,?,?,?,?,?,?,?,?,?,?,?,'CD',?,?,?)";
          try {
            PreparedStatement preparedStatement = con.prepareStatement(sql);
            preparedStatement.setString(1, dk.getTenChuXe());
@@ -103,9 +104,9 @@ public class QuanLyDangKy {
            preparedStatement.setString(10, dk.getSoSeriKTCLXX());
            preparedStatement.setString(11, dk.getGmailChuXe());
            preparedStatement.setString(12, dk.getIdThongTinXeNo());
-           preparedStatement.setString(13, dk.getTinhTrangDangKi());
-           preparedStatement.setString(14, dk.getIdAccountDangKi());
-           preparedStatement.setString(15, dk.getIdAccountDuyet());
+           preparedStatement.setString(13, dk.getIdAccountDangKi());
+           preparedStatement.setString(14, dk.getIdAccountDuyet());
+           preparedStatement.setString(15, dk.getBienSoXe());
            
            preparedStatement.execute();
         } catch (SQLException e) {
@@ -153,7 +154,8 @@ public class QuanLyDangKy {
             dangKiMoi.setSoHoaDonDienTu(rs.getString("soHoaDonDienTu"));
             dangKiMoi.setSoSeriKTCLXX(rs.getString("soSeriKTCLXX"));
             dangKiMoi.setSoToKhaiHaiQuan(rs.getString("soToKhaiHaiQuan"));
-            dangKiMoi.setTinhTrangDangKi(rs.getString("tinhTrangDangKi"));          
+            dangKiMoi.setTinhTrangDangKi(rs.getString("tinhTrangDangKi")); 
+            dangKiMoi.setBienSoXe(rs.getString("bienSoXe"));
             
             return dangKiMoi;
         } catch (SQLException e) {
@@ -230,5 +232,19 @@ public class QuanLyDangKy {
             System.out.println("Lỗi đếm");
         }
         return 0;
+    }
+    public void updateBienSoXe(String idDangKi, String bienSoXe){
+        Connection con = GetConnectServer.getConnection();
+        String sql = "update DangKiBienSo set bienSoXe = ? where idDangKi = ?";
+        try{
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, bienSoXe);
+            preparedStatement.setString(2, idDangKi);
+            
+            preparedStatement.execute();
+        }
+        catch(SQLException e){
+            System.out.println("Lỗi update bien so");
+        }
     }
 }

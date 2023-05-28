@@ -25,8 +25,9 @@ public class DangKiBienSo {
     private String tinhTrangDangKi;
     private String idAccountDangKi;
     private String idAccountDuyet;
+    private String bienSoXe;
 
-    public DangKiBienSo(String idDangKi, String tenChuXe, String namsinh, String diaChi, String cccdChuXe, String sdtNLTT, String soHoaDonDienTu, String maSoThue, String maHoSoKhaiLePhiTruocBa, String soToKhaiHaiQuan, String soSeriKTCLXX, String gmailChuXe, String idThongTinXeNo, String tinhTrangDangKi, String idAccountDangKi, String idAccountDuyet) {
+    public DangKiBienSo(String idDangKi, String tenChuXe, String namsinh, String diaChi, String cccdChuXe, String sdtNLTT, String soHoaDonDienTu, String maSoThue, String maHoSoKhaiLePhiTruocBa, String soToKhaiHaiQuan, String soSeriKTCLXX, String gmailChuXe, String idThongTinXeNo, String tinhTrangDangKi, String idAccountDangKi, String idAccountDuyet, String bienSoXe) {
         this.idDangKi = idDangKi;
         this.tenChuXe = tenChuXe;
         this.namsinh = namsinh;
@@ -43,11 +44,23 @@ public class DangKiBienSo {
         this.tinhTrangDangKi = tinhTrangDangKi;
         this.idAccountDangKi = idAccountDangKi;
         this.idAccountDuyet = idAccountDuyet;
+        this.bienSoXe = bienSoXe;
     }
+    
+    
 
     public DangKiBienSo() {
     }
 
+    public String getBienSoXe() {
+        return bienSoXe;
+    }
+
+    public void setBienSoXe(String bienSoXe) {
+        this.bienSoXe = bienSoXe;
+    }
+
+    
     public String getIdDangKi() {
         return idDangKi;
     }

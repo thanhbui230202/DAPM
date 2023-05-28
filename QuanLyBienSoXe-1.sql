@@ -45,6 +45,7 @@ create table DangKiBienSo(
 	tinhTrangDangKi char(2), --CD, DD, KD
 	idAccountDangKi char(5), --ND001, ND002, ...
 	idAccountDuyet char(5), --AD001, AD002, ...
+	bienSoXe int,
 		constraint FK_DKBS_idThongTinXeNo foreign key (idThongTinXeNo) references ThongTinXeDangKi(idThongTinXe)
 )
 

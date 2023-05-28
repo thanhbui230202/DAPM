@@ -74,6 +74,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
         defaultTableModel.addColumn("SĐTNLTT");
         defaultTableModel.addColumn("idNLTT");
         defaultTableModel.addColumn("Tình trạng");
+        defaultTableModel.addColumn("Biển số xe");
         
         setDataTable(quanLyDangKy.getAllDangKi());
         
@@ -85,7 +86,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
         for(DangKiBienSo x : listDK)
         {
             defaultTableModel.addRow(new Object[]{x.getIdDangKi(),x.getTenChuXe(),x.getCccdChuXe(),
-                x.getDiaChi(),x.getNamsinh(), x.getSdtNLTT(),x.getIdAccountDangKi(),x.getTinhTrangDangKi()});
+                x.getDiaChi(),x.getNamsinh(), x.getSdtNLTT(),x.getIdAccountDangKi(),x.getTinhTrangDangKi(),x.getBienSoXe()});
         }
     }
      
@@ -100,7 +101,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
 
         jDialog1 = new javax.swing.JDialog();
         kGradientPanel1 = new keeptoo.KGradientPanel();
-        lbIdNext = new javax.swing.JLabel();
+        lbBienSoXe = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -120,6 +121,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
         buttonshine2 = new customcp.Buttonshine();
         buttonshine4 = new customcp.Buttonshine();
         ckbDaDuyet = new javax.swing.JCheckBox();
+        buttonshine3 = new customcp.Buttonshine();
 
         jDialog1.setTitle("Mã xe");
         jDialog1.setMinimumSize(new java.awt.Dimension(400, 300));
@@ -134,12 +136,12 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
             }
         });
 
-        lbIdNext.setFont(new java.awt.Font("Segoe UI", 0, 80)); // NOI18N
-        lbIdNext.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbIdNext.setText("XE00020");
-        lbIdNext.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbBienSoXe.setFont(new java.awt.Font("Segoe UI", 0, 80)); // NOI18N
+        lbBienSoXe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbBienSoXe.setText("42 24343 34");
+        lbBienSoXe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbIdNextMouseClicked(evt);
+                lbBienSoXeMouseClicked(evt);
             }
         });
 
@@ -156,7 +158,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbIdNext, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addComponent(lbBienSoXe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(37, 37, 37)
@@ -170,7 +172,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap(65, Short.MAX_VALUE)
-                .addComponent(lbIdNext)
+                .addComponent(lbBienSoXe)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -351,6 +353,16 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
             }
         });
 
+        buttonshine3.setBackground(new java.awt.Color(51, 253, 15));
+        buttonshine3.setText("Cấp biển số xe");
+        buttonshine3.setEffectColor(new java.awt.Color(240, 240, 240));
+        buttonshine3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        buttonshine3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonshine3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -370,8 +382,12 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
                         .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(5, 5, 5)
                         .addComponent(btsearch))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 927, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(198, 198, 198)
+                .addComponent(buttonshine3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,7 +407,9 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonshine3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -477,9 +495,10 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_buttonshine2ActionPerformed
 
-    private void lbIdNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbIdNextMouseClicked
+    private void lbBienSoXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBienSoXeMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lbIdNextMouseClicked
+        jDialog1.setVisible(false);
+    }//GEN-LAST:event_lbBienSoXeMouseClicked
 
     private void btKhongDuyetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btKhongDuyetActionPerformed
         int row = tbDangKi.getSelectedRow();
@@ -511,6 +530,43 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         settabledataif();
     }//GEN-LAST:event_ckbDaDuyetItemStateChanged
+
+    private void buttonshine3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonshine3ActionPerformed
+        // TODO add your handling code here:
+        int row = tbDangKi.getSelectedRow();
+        if(row == -1)
+        {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn bản đăng kí trước!","Lỗi",JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            String trangthai = String.valueOf(tbDangKi.getValueAt(row, 7));
+            String bienSo = String.valueOf(tbDangKi.getValueAt(row, 8));
+            if (trangthai.equals("KD"))
+            {
+                JOptionPane.showMessageDialog(this, "Bản đăng kí không duyệt rồi!","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+            }
+            if (trangthai.equals("CD"))
+            {
+                JOptionPane.showMessageDialog(this, "Bản đăng kí chưa duyệt rồi!","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+            }
+            if (trangthai.equals("DD") && !bienSo.equals("null"))
+            {
+                JOptionPane.showMessageDialog(this, "Đã cấp biển số xe","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+                System.out.println(trangthai + bienSo);
+            }
+            if (trangthai.equals("DD") && bienSo.equals("null"))
+            {
+                String idDangKi = String.valueOf(defaultTableModel.getValueAt(row, 0));
+                Random random = new Random();
+                int x = random.nextInt(89999) + 10000;
+                lbBienSoXe.setText("43A - "+ String.valueOf(x));
+                jDialog1.setLocationRelativeTo(null);
+                jDialog1.setVisible(true);
+                quanLyDangKy.updateBienSoXe(idDangKi, String.valueOf(x));
+                JOptionPane.showMessageDialog(this, "Cập nhập thành công!");
+            }
+        }
+    }//GEN-LAST:event_buttonshine3ActionPerformed
 
    
     public void settabledataif(){
@@ -597,6 +653,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
     private customcp.Buttonshine btKhongDuyet;
     private javax.swing.JButton btsearch;
     private customcp.Buttonshine buttonshine2;
+    private customcp.Buttonshine buttonshine3;
     private customcp.Buttonshine buttonshine4;
     private javax.swing.JCheckBox ckbDaDuyet;
     private javax.swing.JCheckBox ckboxchuaduyet;
@@ -609,7 +666,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;
-    private javax.swing.JLabel lbIdNext;
+    private javax.swing.JLabel lbBienSoXe;
     private javax.swing.JTable tbDangKi;
     private javax.swing.JLabel txtmanv;
     private javax.swing.JLabel txtrole;

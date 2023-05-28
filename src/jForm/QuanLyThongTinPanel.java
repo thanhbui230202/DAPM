@@ -652,17 +652,20 @@ public class QuanLyThongTinPanel extends javax.swing.JPanel {
         if (txtmatkhaucu.getText().equals(""))
         {
             txtmatkhaucu.requestFocus();
+            txtnhacnho.setText("Nhập đủ nội dung!");
             dcphepchay=false;
         }
         if (txtmatkhaumoi.getText().equals("") && dcphepchay)
         {
             txtmatkhaumoi.requestFocus();
+            txtnhacnho.setText("Nhập đủ nội dung!");
             dcphepchay=false;
         }
         if (txtxacnhanmatkhau.getText().equals("")  && dcphepchay)
         {
             txtxacnhanmatkhau.requestFocus();
             dcphepchay=false;
+            txtnhacnho.setText("Nhập đủ nội dung!");
         }
         
         if (!txtmatkhaucu.getText().equals(user.getPassWords())  && dcphepchay)
@@ -673,32 +676,27 @@ public class QuanLyThongTinPanel extends javax.swing.JPanel {
             dcphepchay=false;
         } 
         
-         if (!txtmatkhaumoi.getText().equals(txtxacnhanmatkhau.getText())  && dcphepchay)
+        if (!txtmatkhaumoi.getText().equals(txtxacnhanmatkhau.getText())  && dcphepchay)
         {
             txtmatkhaumoi.requestFocus();
             txtnhacnho.setText("Xác nhận sai !!!");
             imgkhoc.setVisible(true);
             dcphepchay=false;
     
-            quanLyUser.updatePassword(user.getIdAccount(),txtmatkhaumoi.getText());
-            user.setPassWords(txtmatkhaumoi.getText()); 
             
+        }
         if (dcphepchay)
         {
             txtnhacnho.setText("Đã đổi mật khẩu");
             imgkhoc.setVisible(true);
             imgkhoc.setIcon(new ImageIcon(getClass().getResource("/img/doimkthangcong.png")));
-                    
+            System.out.println("Đổi pass thành công");
             quanLyUser.updatePassword(user.getIdAccount(),txtmatkhaumoi.getText());
             user.setPassWords(txtmatkhaumoi.getText());
             txtmatkhaucu.setText("");
             txtmatkhaumoi.setText("");
             txtxacnhanmatkhau.setText("");
         } 
-        } 
-        
-        
-        
     }//GEN-LAST:event_buttonshine1ActionPerformed
 
      public final void resetInfo(){

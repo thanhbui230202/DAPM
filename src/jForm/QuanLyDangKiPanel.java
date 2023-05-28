@@ -52,7 +52,8 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
         txtmanv.setText("Mã NV: "+user.getIdAccount());
         txttennv.setText("Tên NV: "+user.getHoVaTen());
         txtrole.setText("Chức vụ: "+user.getChucVu());
-        
+        quanLyDangKy = new QuanLyDangKy();
+
         
         defaultTableModel = new DefaultTableModel(){
             @Override
@@ -61,7 +62,6 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
             }
             
         };
-        quanLyDangKy = new QuanLyDangKy();
         
         
         tbDangKi.setModel(defaultTableModel);
@@ -198,7 +198,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(947, 680));
 
         txtsearch.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtsearch.setText("Tìm mã, số điện thoại, cccd ...");
+        txtsearch.setText("Tìm tên, số điện thoại, cccd ...");
         txtsearch.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtsearchFocusGained(evt);
@@ -406,7 +406,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
 
     private void txtsearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtsearchFocusGained
         // TODO add your handling code here:
-        if (txtsearch.getText().equals("Tìm mã, số điện thoại, cccd ..."))
+        if (txtsearch.getText().equals("Tìm tên, số điện thoại, cccd ..."))
         {
             txtsearch.setText("");
             txtsearch.setForeground(new Color(0,0,0));
@@ -417,15 +417,16 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(txtsearch.getText().equals(""))
         {
-            txtsearch.setText("Tìm mã, số điện thoại, cccd ...");
+            txtsearch.setText("Tìm tên, số điện thoại, cccd ...");
             txtsearch.setForeground(new Color(153,153,153));
         }
     }//GEN-LAST:event_txtsearchFocusLost
 
     private void btsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsearchActionPerformed
-        if (txtsearch.getText().equals("") || txtsearch.getText().equals("Tìm mã xe, biển số, loại xe ..."))
+        if (txtsearch.getText().equals("") || txtsearch.getText().equals("Tìm tên, số điện thoại, cccd ..."))
         {
             defaultTableModel.setRowCount(0);
+            
         }
         else 
         {

@@ -49,6 +49,8 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
         userdangchinh = new User();
         user = new User(usernv);
         
+        
+        
         defaultTableModel = new DefaultTableModel(){
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -68,7 +70,8 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
         customTable(ScrollPane1, tabledata);
         setDatainPanel(user);
         
-        setAvatar(user);
+        btxacnhan.setVisible(false);
+//        setAvatar(user);
         
     }
     
@@ -117,7 +120,7 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
         btsearch = new customcp.Buttonshine();
         jPanel3 = new javax.swing.JPanel();
         txtmanv = new javax.swing.JLabel();
-        imageAvatar = new customcp.ImageAvatar();
+        btxacnhan = new customcp.Buttonshine();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setMinimumSize(new java.awt.Dimension(947, 680));
@@ -327,29 +330,31 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
         txtmanv.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtmanv.setText("Mã NV:");
 
-        imageAvatar.setToolTipText("");
-        imageAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/NV00001.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imageAvatar, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                    .addComponent(txtmanv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtmanv, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(imageAvatar, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(173, Short.MAX_VALUE)
                 .addComponent(txtmanv)
                 .addContainerGap())
         );
+
+        btxacnhan.setBackground(new java.awt.Color(51, 253, 15));
+        btxacnhan.setText("Xác nhận");
+        btxacnhan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btxacnhan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btxacnhanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -367,17 +372,26 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
                     .addComponent(ScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 927, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 22, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 22, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btxacnhan, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(57, 57, 57)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btxacnhan, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -443,9 +457,9 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
         txtCccd.setEnabled(true);
         txtpass.setEnabled(true);
         ckchucvu.setEnabled(true);
-        imageAvatar.setIcon(new ImageIcon("./src/img/quanlyuser.png"));
-        imageAvatar.setBorderSize(0);
-        
+//        imageAvatar.setIcon(new ImageIcon("./src/img/quanlyuser.png"));
+//        imageAvatar.setBorderSize(0);
+        btxacnhan.setVisible(true);
         txthoten.requestFocus();
     }//GEN-LAST:event_btthemActionPerformed
 
@@ -457,6 +471,7 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
         txtpass.setEnabled(true);
         ckchucvu.setEnabled(true);
         setDataTable(quanLyUser.getAllUsers());
+        btxacnhan.setVisible(false);
     }//GEN-LAST:event_btdatlaiActionPerformed
 
     private void btxoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btxoaActionPerformed
@@ -486,14 +501,78 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
         else
         {
             String iddel =String.valueOf(defaultTableModel.getValueAt(row, 0));
+            btxacnhan.setVisible(true);
             userdangchinh= quanLyUser.getUserById(String.valueOf(iddel));
             setDatainPanel(userdangchinh);
             txtCccd.setEnabled(false);
             txtpass.setEnabled(false);
             ckchucvu.setEnabled(false);
-            setAvatar(userdangchinh);
+//            setAvatar(userdangchinh);
         }
     }//GEN-LAST:event_btsuauserActionPerformed
+
+    private void btxacnhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btxacnhanActionPerformed
+        // TODO add your handling code here:
+        boolean duocchay=true;
+        if(txthoten.getText().equals("") && duocchay)
+        {
+            txthoten.requestFocus();
+            duocchay=false;
+        }
+        if(txtsodienthoai.getText().equals("") && duocchay)
+        {
+            txtsodienthoai.requestFocus();
+            duocchay=false;
+        }
+        if(txtpass.getText().equals("") && duocchay)
+        {
+            txtpass.requestFocus();
+            duocchay=false;
+        }
+
+        if (txtmanv.getText().equals("Nhập thông tin") && duocchay)
+        {
+            User usercanthem=new User();
+            usercanthem.setHoVaTen(txthoten.getText());
+            usercanthem.setCccd(txtCccd.getText());
+            usercanthem.setPassWords(txtpass.getText());
+            usercanthem.setQueQuan(txtquequan.getText());
+            usercanthem.setSdt(txtsodienthoai.getText());
+            usercanthem.setChucVu((String) ckchucvu.getSelectedItem());
+            usercanthem.setGioiTinh((String) ckgioitinh.getSelectedItem());
+            quanLyUser.addUser(usercanthem);
+
+            txtmanv.setText("Đã thêm");
+            txthoten.setText("");
+            txtCccd.setText("");
+            txtsodienthoai.setText("");;
+            txtquequan.setText("");
+            txtpass.setText("");
+            ckgioitinh.setSelectedIndex(0);
+            ckchucvu.setSelectedIndex(0);
+
+            btxacnhan.setVisible(false);
+
+        }
+        if (txtmanv.getText().contains("Mã NV:") && duocchay)
+        {
+            userdangchinh.setHoVaTen(txthoten.getText());
+            userdangchinh.setCccd(txtCccd.getText());
+            userdangchinh.setPassWords(txtpass.getText());
+            userdangchinh.setQueQuan(txtquequan.getText());
+            userdangchinh.setSdt(txtsodienthoai.getText());
+            userdangchinh.setChucVu((String) ckchucvu.getSelectedItem());
+            userdangchinh.setGioiTinh((String) ckgioitinh.getSelectedItem());
+
+            quanLyUser.updateUser(userdangchinh);
+            txtCccd.setEnabled(true);
+            txtpass.setEnabled(true);
+            ckchucvu.setEnabled(true);
+            btxacnhan.setVisible(false);
+
+            setDatainPanel(user);
+        }
+    }//GEN-LAST:event_btxacnhanActionPerformed
 
     
     
@@ -565,22 +644,7 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
 //        table.getTableHeader().setFont(new Font("Segoe UI", 30, 30));
     }
     
-    public void setAvatar(User user){
-        try
-        {
-            String sourceImg="./src/img/"+user.getIdAccount()+".png";
-            File newFile = new File(sourceImg);
-            xulyanh=ImageIO.read(newFile);
-            ImageIcon imageIcon = new ImageIcon(xulyanh);
-            imageAvatar.setIcon(imageIcon);
-            imageAvatar.setBorderSize(3);
-        }
-        catch(IOException e)
-        {
-            imageAvatar.setIcon(new ImageIcon("./src/img/quanlyuser.png"));
-            imageAvatar.setBorderSize(0);
-        }
-    }
+    
 
      public void setDatainPanel(User user)
     {
@@ -600,10 +664,10 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
     private customcp.Buttonshine btsearch;
     private customcp.Buttonshine btsuauser;
     private customcp.Buttonshine btthem;
+    private customcp.Buttonshine btxacnhan;
     private customcp.Buttonshine btxoa;
     private javax.swing.JComboBox<String> ckchucvu;
     private javax.swing.JComboBox<String> ckgioitinh;
-    private customcp.ImageAvatar imageAvatar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

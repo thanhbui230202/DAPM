@@ -44,11 +44,11 @@ public class QuanLyUser {
         return null;
     }
     
-    public static User checkUser(String sdt, String passwords){
+    public User checkUser(String sdt, String passwords){
         User newUser = new User();
         Connection con = GetConnectServer.getConnection();
         
-        String sql = "Select * from Account where sdt = ?, passwords = ?";
+        String sql = "Select * from Account where sdt = ? and passwords = ?";
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, sdt);
@@ -58,19 +58,19 @@ public class QuanLyUser {
             
             rs.next();      
             newUser.setIdAccount(rs.getString("idAccount"));
-            newUser.setHoVaTen(rs.getString("hoVaTen"));
             newUser.setSdt(rs.getString("sdt"));
             newUser.setCccd(rs.getString("cccd"));
             newUser.setPassWords(rs.getString("passwords"));
             newUser.setChucVu(rs.getString("chucVu"));
             newUser.setQueQuan(rs.getString("queQuan"));
+            newUser.setHoVaTen(rs.getString("hoVaTen"));
             newUser.setGioiTinh(rs.getString("gioiTinh"));
             
             return newUser;
         } catch (SQLException e) {
-            System.out.println("lỗi check");
+            System.out.println("lỗi check dang nhap");
+                    return null;
         }
-        return null;
     }
     
     public List<User> getAllUsers(){
@@ -196,7 +196,7 @@ public class QuanLyUser {
         }
         else 
             sql="INSERT INTO Account (idAccount, sdt, cccd, passWords, chucVu, queQuan, hoVaTen, gioiTinh)"
-                + "VALUES (dbo.getIdUserNVNext(),?,?,?,?,?,?,?,?)";
+                + "VALUES (dbo.getIdAccountUserNext(),?,?,?,?,?,?,?)";
         
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);

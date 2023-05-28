@@ -48,6 +48,7 @@ public class Main extends javax.swing.JFrame {
         }
         if(userkh.getChucVu().equals("Admin")){
             lbquanlynv.setText("Quản lí đăng kí");
+            lbtrogiup.setText("Quản lí người dùng");
         }
         
         resetMau();
@@ -440,7 +441,15 @@ public class Main extends javax.swing.JFrame {
     private void trogiuppnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trogiuppnMouseClicked
         // TODO add your handling code here:
         // update user
+        user=quanLyUser.getUserById(user.getIdAccount());
+        container.removeAll();
+        container.setLayout(new CardLayout());
+        container.add(new QuanLyNhanVienPanel(user));
+        container.revalidate();
+        container.repaint();
         
+        resetMau();
+        chonThongKe();
 
     }//GEN-LAST:event_trogiuppnMouseClicked
 

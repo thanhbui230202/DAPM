@@ -12,6 +12,7 @@ create table Account(
 	hoVaTen nvarchar(25),
 	gioiTinh nvarchar(25), --"Nam", "Nữ"
 )
+
 create table loaiXe(
 	idLoaiXe varchar(10) primary key not null, --BANTAI, OTO, MOTO, BUS, ...
 	tenLoaixe nvarchar(255),
@@ -30,7 +31,7 @@ create table ThongTinXeDangKi(
 create table DangKiBienSo(
 	idDangKi char(5) primary key not null, --DK001, DK002, ...
 	tenChuXe nvarchar(255),
-	namsinh date,
+	namsinh int,
 	diachi nvarchar(255),
 	cccdChuXe varchar(10),
 	sdtNLTT varchar(10),
@@ -46,3 +47,51 @@ create table DangKiBienSo(
 	idAccountDuyet char(5), --AD001, AD002, ...
 		constraint FK_DKBS_idThongTinXeNo foreign key (idThongTinXeNo) references ThongTinXeDangKi(idThongTinXe)
 )
+
+go
+create or alter function getIdDangKiNext
+(
+)
+returns char(5)
+as
+begin
+	declare @idNextInt int;
+	select @idNextInt = max(right(idDangKi,5))+1
+	from DangKiBienSo
+	declare @idNextChar char(5);
+	select @idNextChar = CONCAT('DK',FORMAT(@idNextInt,'D3'))
+	return @idNextChar
+end
+go
+
+create or alter function getIdAccountUserNext
+(
+)
+returns  char (5)
+as
+begin
+	declare @IdNextInt int;
+	select @IdNextInt = max(right(idAccount,3))+1
+	from Account
+	where chucVu = 'User'
+	declare @idNextChar char(5);
+	select @idNextChar = CONCAT('ND',FORMAT(@idNextInt,'D3'))
+	return @idNextChar
+end
+
+go
+create or alter function getIdAccountAdNext
+(
+)
+returns  char (5)
+as
+begin
+	declare @IdNextInt int;
+	select @IdNextInt = max(right(idAccount,3))+1
+	from Account
+	where chucVu = 'Admin'
+	declare @idNextChar char(5);
+	select @idNextChar = CONCAT('AD',FORMAT(@idNextInt,'D3'))
+	return @idNextChar
+end
+

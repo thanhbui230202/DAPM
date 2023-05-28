@@ -328,7 +328,7 @@ public class LogInFrame extends javax.swing.JFrame {
          if (duocchay){
             String username=txtusername.getText();
             String password=String.valueOf(this.txtpassword.getPassword());
-            user= QuanLyUser.checkUser(username, password);
+            user= quanLyUser.checkUser(username, password);
             if (user == null)
             {
                 txtusername.requestFocus(true);

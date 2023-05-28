@@ -78,8 +78,8 @@ public class QuanLyDangKy {
     }
     
     public List<DangKiBienSo> getAllDangKisdt_ten_cccd(String tim){
-        String sql = "Select * from DangKiBienSo where (sdt like '%" + tim + "%')"
-                + "or (tenChuXe like '%" + tim +"%') or (cccdChuXe like '%" + tim + "%') ";
+        String sql = "Select * from DangKiBienSo where (idDangKi like N'%" + tim + "%')"
+                + "or (tenChuXe like N'%" + tim +"%') or (cccdChuXe like N'%" + tim + "%') ";
         List<DangKiBienSo> listDK = runSQLReturnListDangKi(sql);
         return listDK;
     }
@@ -197,7 +197,7 @@ public class QuanLyDangKy {
         int dem = 0;
         Connection con = GetConnectServer.getConnection();
         try{
-            String sql = "select count(idAccount) from DangKiBienSo";
+            String sql = "select count(idDangKi) from DangKiBienSo";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
             
@@ -217,7 +217,7 @@ public class QuanLyDangKy {
         int dem = 0;
         Connection con = GetConnectServer.getConnection();
         try{
-            String sql = "select count(idAccount) from DangKiBienSo where tinhTrangDangKi = 'DD'";
+            String sql = "select count(idDangKi) from DangKiBienSo where tinhTrangDangKi = 'DD'";
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
             

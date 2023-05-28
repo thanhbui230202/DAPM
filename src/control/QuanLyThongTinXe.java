@@ -63,5 +63,26 @@ public class QuanLyThongTinXe {
         }
     }
     
+    public List<ThongTinXe> getAllTTXById(String id)
+    {
+        String sql = "select * from ThongTinXe where idThongTinXe = " + id;
+        List<ThongTinXe> listTTX = runSQLreturnListTTX(sql);
+        return listTTX;
+    }
+    
+    public void delTTX(String id){
+        Connection con = GetConnectServer.getConnection();
+        String sql = "DELETE ThongTinXe "
+                + "where idThongTinXe = ?";
+        try{
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, id);
+            preparedStatement.execute();
+        }
+        catch(SQLException e){
+            System.out.println("lỗi tại xóa theo idTTX");
+        }
+    }
+    
     
 }

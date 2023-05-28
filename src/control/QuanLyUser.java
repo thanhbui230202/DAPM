@@ -92,9 +92,10 @@ public class QuanLyUser {
             dem = Integer.parseInt(countUser);
             return dem;
         }
-        catch (Exception e){
-            return dem;
+        catch (SQLException e){
+            System.out.println("Lỗi đếm ng dùng");
         }
+        return 0;
     }
     
     public void delUser(String id)

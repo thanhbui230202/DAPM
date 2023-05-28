@@ -55,7 +55,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel3" max="32767" attributes="0"/>
-              <Component id="quanlyxepn" alignment="0" max="32767" attributes="0"/>
+              <Component id="quanlythongtinpn" alignment="0" max="32767" attributes="0"/>
               <Component id="quanlynvpn" alignment="0" max="32767" attributes="0"/>
               <Component id="thongkepn" alignment="0" max="32767" attributes="0"/>
               <Component id="trogiuppn" alignment="0" max="32767" attributes="0"/>
@@ -71,7 +71,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="quanlyxepn" min="-2" max="-2" attributes="0"/>
+                  <Component id="quanlythongtinpn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="quanlynvpn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -131,7 +131,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="VEHICLE PARKING"/>
+                <Property name="text" type="java.lang.String" value="LICENSE PLATES"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
@@ -155,14 +155,14 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="quanlyxepn">
+        <Container class="javax.swing.JPanel" name="quanlythongtinpn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="quanlyxepnMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="quanlythongtinpnMouseClicked"/>
           </Events>
 
           <Layout>
@@ -221,7 +221,7 @@
                   <Color blue="e6" green="e6" red="e6" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/car.png"/>
+                  <Image iconType="3" name="/img/users.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; th&#xf4;ng tin"/>
               </Properties>
@@ -294,7 +294,7 @@
                   <Color blue="e6" green="e6" red="e6" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/img/users.png"/>
+                  <Image iconType="3" name="/img/car.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; nh&#xe2;n vi&#xea;n"/>
               </Properties>

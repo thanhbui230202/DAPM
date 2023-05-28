@@ -27,7 +27,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         container.setLayout(new CardLayout());
-        container.add(new QuanLyXePanel());
+        container.add(new QuanLyDangKiPanel());
         resetMau();
         chonQLTT();
     }
@@ -43,8 +43,13 @@ public class Main extends javax.swing.JFrame {
         
         if (userkh.getChucVu().equals("User"))
         {
-            lbquanlynv.setText("Quản lý thông tin");
+            lbquanlynv.setText("Đăng kí thông tin xe");
+            lbthongke.setText("Đăng kí biển số xe");
         }
+        if(userkh.getChucVu().equals("Admin")){
+            lbquanlynv.setText("Quản lí đăng kí");
+        }
+        
         resetMau();
         chonQLTT();
     }
@@ -65,7 +70,7 @@ public class Main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        quanlyxepn = new javax.swing.JPanel();
+        quanlythongtinpn = new javax.swing.JPanel();
         sidepn1 = new javax.swing.JPanel();
         lbquanlyxe = new javax.swing.JLabel();
         quanlynvpn = new javax.swing.JPanel();
@@ -91,7 +96,7 @@ public class Main extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("VEHICLE PARKING");
+        jLabel1.setText("LICENSE PLATES");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/caravan logo.png"))); // NOI18N
 
@@ -124,10 +129,10 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        quanlyxepn.setBackground(new java.awt.Color(102, 102, 102));
-        quanlyxepn.addMouseListener(new java.awt.event.MouseAdapter() {
+        quanlythongtinpn.setBackground(new java.awt.Color(102, 102, 102));
+        quanlythongtinpn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                quanlyxepnMouseClicked(evt);
+                quanlythongtinpnMouseClicked(evt);
             }
         });
 
@@ -147,24 +152,24 @@ public class Main extends javax.swing.JFrame {
         lbquanlyxe.setBackground(new java.awt.Color(204, 204, 204));
         lbquanlyxe.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbquanlyxe.setForeground(new java.awt.Color(230, 230, 230));
-        lbquanlyxe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/car.png"))); // NOI18N
+        lbquanlyxe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/users.png"))); // NOI18N
         lbquanlyxe.setText("Quản lý thông tin");
 
-        javax.swing.GroupLayout quanlyxepnLayout = new javax.swing.GroupLayout(quanlyxepn);
-        quanlyxepn.setLayout(quanlyxepnLayout);
-        quanlyxepnLayout.setHorizontalGroup(
-            quanlyxepnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(quanlyxepnLayout.createSequentialGroup()
+        javax.swing.GroupLayout quanlythongtinpnLayout = new javax.swing.GroupLayout(quanlythongtinpn);
+        quanlythongtinpn.setLayout(quanlythongtinpnLayout);
+        quanlythongtinpnLayout.setHorizontalGroup(
+            quanlythongtinpnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(quanlythongtinpnLayout.createSequentialGroup()
                 .addComponent(sidepn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lbquanlyxe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        quanlyxepnLayout.setVerticalGroup(
-            quanlyxepnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quanlyxepnLayout.createSequentialGroup()
+        quanlythongtinpnLayout.setVerticalGroup(
+            quanlythongtinpnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quanlythongtinpnLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(quanlyxepnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(quanlythongtinpnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(sidepn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbquanlyxe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -192,7 +197,7 @@ public class Main extends javax.swing.JFrame {
         lbquanlynv.setBackground(new java.awt.Color(204, 204, 204));
         lbquanlynv.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbquanlynv.setForeground(new java.awt.Color(230, 230, 230));
-        lbquanlynv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/users.png"))); // NOI18N
+        lbquanlynv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/car.png"))); // NOI18N
         lbquanlynv.setText("Quản lý nhân viên");
 
         javax.swing.GroupLayout quanlynvpnLayout = new javax.swing.GroupLayout(quanlynvpn);
@@ -319,7 +324,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(quanlyxepn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(quanlythongtinpn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(quanlynvpn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(thongkepn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(trogiuppn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -333,7 +338,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(quanlyxepn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(quanlythongtinpn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(quanlynvpn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -381,21 +386,55 @@ public class Main extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void quanlyxepnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quanlyxepnMouseClicked
-
-        // update user
+    private void quanlythongtinpnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quanlythongtinpnMouseClicked
+        user= quanLyUser.getUserById(user.getIdAccount());
         
-    }//GEN-LAST:event_quanlyxepnMouseClicked
+        container.removeAll();
+        container.setLayout(new CardLayout());
+        container.add(new QuanLyThongTinPanel(user));
+        container.revalidate();
+        container.repaint();
+        // update user
+        resetMau();
+        chonQLTT();
+    }//GEN-LAST:event_quanlythongtinpnMouseClicked
 
     private void quanlynvpnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quanlynvpnMouseClicked
         // TODO add your handling code here:
+         user=quanLyUser.getUserById(user.getIdAccount());
+        if (user.getChucVu().equals("Admin"))
+        {
+            container.removeAll();
+            container.setLayout(new CardLayout());
+            container.add(new QuanLyDangKiPanel(user));
+            container.revalidate();
+            container.repaint();
+        }
+        else 
+        {
+            user= quanLyUser.getUserById(user.getIdAccount());
+            container.removeAll();
+            container.setLayout(new CardLayout());
+            container.add(new QuanLyThongTinPanel(user));
+            container.revalidate();
+            container.repaint();
+        }
         
+        resetMau();
+        chonQLNV();
     }//GEN-LAST:event_quanlynvpnMouseClicked
 
     private void thongkepnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thongkepnMouseClicked
         // TODO add your handling code here:
         // update user
+        container.removeAll();
+        container.setLayout(new CardLayout());
+        container.add(new ThongKePanel());
+        container.revalidate();
+        container.repaint();
         
+        resetMau();
+        chonThongKe();
     }//GEN-LAST:event_thongkepnMouseClicked
 
     private void trogiuppnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trogiuppnMouseClicked
@@ -454,7 +493,7 @@ public class Main extends javax.swing.JFrame {
         sidepn2.setBackground(new Color(102,102,102));
         sidepn3.setBackground(new Color(102,102,102));
         sidepn4.setBackground(new Color(102,102,102));
-        quanlyxepn.setBackground(new Color(102,102,102));
+        quanlythongtinpn.setBackground(new Color(102,102,102));
         quanlynvpn.setBackground(new Color(102,102,102));
         thongkepn.setBackground(new Color(102,102,102));
         trogiuppn.setBackground(new Color(102,102,102));
@@ -467,7 +506,7 @@ public class Main extends javax.swing.JFrame {
     
     public final void chonQLTT(){
         sidepn1.setBackground(Color.white);
-        quanlyxepn.setBackground(new Color(70,70,70));
+        quanlythongtinpn.setBackground(new Color(70,70,70));
         lbquanlyxe.setForeground(Color.white);
     }
     
@@ -502,7 +541,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lbthongke;
     private javax.swing.JLabel lbtrogiup;
     private javax.swing.JPanel quanlynvpn;
-    private javax.swing.JPanel quanlyxepn;
+    private javax.swing.JPanel quanlythongtinpn;
     private javax.swing.JPanel sidepn1;
     private javax.swing.JPanel sidepn2;
     private javax.swing.JPanel sidepn3;

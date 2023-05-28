@@ -7,6 +7,8 @@ package jForm;
 
 import chartbar.BarChart;
 import chartline.LineChart;
+import control.QuanLyDangKy;
+import control.QuanLyUser;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.text.NumberFormat;
@@ -17,6 +19,8 @@ import java.util.Locale;
  */
 public class ThongKePanel extends javax.swing.JPanel {
 
+    QuanLyDangKy quanLyDangKy;
+    QuanLyUser users;
     /**
      * Creates new form ThongKePanel
      */
@@ -27,6 +31,15 @@ public class ThongKePanel extends javax.swing.JPanel {
         initComponents();
         //Thong ke
      //Bieu Do
+     
+        quanLyDangKy = new QuanLyDangKy();
+        soLuongXeLabel.setText(String.valueOf(quanLyDangKy.demSoLuongDangKi()));
+        
+        
+        doanhThuLabel.setText(String.valueOf(quanLyDangKy.demSoLuongDangKiDaDuyet()));
+        
+        users = new QuanLyUser();
+        soLuongNhanVienLabel.setText(String.valueOf(users.demSoLuongNguoiDung()));
         barchart = new BarChart();
         lineChart = new LineChart();
         //add legend barchart
@@ -42,8 +55,8 @@ public class ThongKePanel extends javax.swing.JPanel {
         lineChart.addLegend("Xe bán tải", new Color(139, 229, 222), new Color(139, 229, 222));
         lineChart.addLegend("Xe gắn máy", new Color(255,51,102), new Color(255,51,102));
         
-        setBarChart(barchart,2022);
-        setLineChart(lineChart,2022);
+        setBarChart(barchart,2023);
+        setLineChart(lineChart,2023);
         
         mypn.setLayout(new CardLayout());
         mypn.add(barchart);
@@ -104,7 +117,7 @@ public class ThongKePanel extends javax.swing.JPanel {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Lượng Xe");
+        jLabel12.setText("Đăng kí");
 
         soLuongXeLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         soLuongXeLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -155,7 +168,7 @@ public class ThongKePanel extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Nhân viên");
+        jLabel6.setText("Khách hàng");
 
         soLuongNhanVienLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         soLuongNhanVienLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -171,8 +184,8 @@ public class ThongKePanel extends javax.swing.JPanel {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addGroup(panelRoundGraCus2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(soLuongNhanVienLabel)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(40, 40, 40)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
                     .addComponent(jLabel9)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
@@ -208,7 +221,7 @@ public class ThongKePanel extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Doanh thu");
+        jLabel8.setText("Đã duyệt");
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/creditcard.png"))); // NOI18N
 
@@ -389,7 +402,6 @@ public class ThongKePanel extends javax.swing.JPanel {
 
         lineChart.start();
         barchart.start();
-
     }//GEN-LAST:event_txtnambieudoItemStateChanged
 
     

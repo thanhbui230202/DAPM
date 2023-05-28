@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/hoc/HK6/TTCM_DAPM/DAPM/src/control/QuanLyThongTinXe.java</file>
+            <file>file:/D:/hoc/HK6/TTCM_DAPM/DAPM/src/control/QuanLyUser.java</file>
+            <file>file:/D:/hoc/HK6/TTCM_DAPM/DAPM/src/control/QuanLyDangKy.java</file>
+            <file>file:/D:/hoc/HK6/TTCM_DAPM/DAPM/src/connect/GetConnectServer.java</file>
+            <file>file:/D:/hoc/HK6/TTCM_DAPM/DAPM/src/jForm/ThanhToanFrame.java</file>
+            <file>file:/D:/hoc/HK6/TTCM_DAPM/DAPM/src/jForm/QuanLyThongTinPanel.java</file>
+            <file>file:/D:/hoc/HK6/TTCM_DAPM/DAPM/src/jForm/QuanLyDangKiPanel.java</file>
+            <file>file:/D:/hoc/HK6/TTCM_DAPM/DAPM/src/jForm/Main.java</file>
+            <file>file:/D:/hoc/HK6/TTCM_DAPM/DAPM/src/jForm/QuanLyNhanVienPanel.java</file>
+        </group>
     </open-files>
 </project-private>

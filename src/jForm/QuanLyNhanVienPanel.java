@@ -66,7 +66,6 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
         setDataTable(quanLyUser.getAllUsers());
         
         customTable(ScrollPane1, tabledata);
-        btxacnhan.setVisible(false);
         setDatainPanel(user);
         
         setAvatar(user);
@@ -116,7 +115,6 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
         btsuauser = new customcp.Buttonshine();
         btdatlai = new customcp.Buttonshine();
         btsearch = new customcp.Buttonshine();
-        btxacnhan = new customcp.Buttonshine();
         jPanel3 = new javax.swing.JPanel();
         txtmanv = new javax.swing.JLabel();
         imageAvatar = new customcp.ImageAvatar();
@@ -323,15 +321,6 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
             }
         });
 
-        btxacnhan.setBackground(new java.awt.Color(51, 253, 15));
-        btxacnhan.setText("Xác nhận");
-        btxacnhan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btxacnhan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btxacnhanActionPerformed(evt);
-            }
-        });
-
         jPanel3.setOpaque(false);
 
         txtmanv.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -378,15 +367,9 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
                     .addComponent(ScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 927, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btxacnhan, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(59, 59, 59)))))
+                        .addGap(17, 17, 17)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 22, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -394,10 +377,7 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btxacnhan, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -452,7 +432,6 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
 
     private void btthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btthemActionPerformed
         // TODO add your handling code here:
-        btxacnhan.setVisible(true);
         txtmanv.setText("Nhập thông tin");
         txthoten.setText("");
         txtCccd.setText("");
@@ -478,72 +457,7 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
         txtpass.setEnabled(true);
         ckchucvu.setEnabled(true);
         setDataTable(quanLyUser.getAllUsers());
-        btxacnhan.setVisible(false);
     }//GEN-LAST:event_btdatlaiActionPerformed
-
-    private void btxacnhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btxacnhanActionPerformed
-        // TODO add your handling code here:
-        boolean duocchay=true;
-        if(txthoten.getText().equals("") && duocchay)
-        {
-            txthoten.requestFocus();
-            duocchay=false;
-        }
-        if(txtsodienthoai.getText().equals("") && duocchay)
-        {
-            txtsodienthoai.requestFocus();
-            duocchay=false;
-        }
-        if(txtpass.getText().equals("") && duocchay)
-        {
-            txtpass.requestFocus();
-            duocchay=false;
-        }
-        
-        if (txtmanv.getText().equals("Nhập thông tin") && duocchay)
-        {
-            User usercanthem=new User();
-            usercanthem.setIdAccount("NV00000");
-            usercanthem.setHoVaTen(txthoten.getText());
-            usercanthem.setCccd(txtCccd.getText());
-            usercanthem.setPassWords(txtpass.getText());
-            usercanthem.setQueQuan(txtquequan.getText());
-            usercanthem.setSdt(txtsodienthoai.getText());
-            usercanthem.setChucVu((String) ckchucvu.getSelectedItem());
-            usercanthem.setGioiTinh((String) ckgioitinh.getSelectedItem());
-            quanLyUser.addUser(usercanthem);
-            
-            txtmanv.setText("Đã thêm");
-            txthoten.setText("");
-            txtCccd.setText("");
-            txtsodienthoai.setText("");;
-            txtquequan.setText("");
-            txtpass.setText("");
-            ckgioitinh.setSelectedIndex(0);
-            ckchucvu.setSelectedIndex(0);
-            
-            btxacnhan.setVisible(false);
-        }
-        if (txtmanv.getText().contains("Mã NV:") && duocchay)
-        {
-            userdangchinh.setHoVaTen(txthoten.getText());
-            userdangchinh.setCccd(txtCccd.getText());
-            userdangchinh.setPassWords(txtpass.getText());
-            userdangchinh.setQueQuan(txtquequan.getText());
-            userdangchinh.setSdt(txtsodienthoai.getText());
-            userdangchinh.setChucVu((String) ckchucvu.getSelectedItem());
-            userdangchinh.setGioiTinh((String) ckgioitinh.getSelectedItem());        
-            
-            quanLyUser.updateUser(userdangchinh);
-            txtCccd.setEnabled(true);
-            txtpass.setEnabled(true);
-            ckchucvu.setEnabled(true);
-            btxacnhan.setVisible(false);
-            
-            setDatainPanel(user);
-            setAvatar(user);
-        }
-    }//GEN-LAST:event_btxacnhanActionPerformed
 
     private void btxoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btxoaActionPerformed
         // TODO add your handling code here:
@@ -574,7 +488,6 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
             String iddel =String.valueOf(defaultTableModel.getValueAt(row, 0));
             userdangchinh= quanLyUser.getUserById(String.valueOf(iddel));
             setDatainPanel(userdangchinh);
-            btxacnhan.setVisible(true);
             txtCccd.setEnabled(false);
             txtpass.setEnabled(false);
             ckchucvu.setEnabled(false);
@@ -662,7 +575,7 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
             imageAvatar.setIcon(imageIcon);
             imageAvatar.setBorderSize(3);
         }
-        catch(Exception e)
+        catch(IOException e)
         {
             imageAvatar.setIcon(new ImageIcon("./src/img/quanlyuser.png"));
             imageAvatar.setBorderSize(0);
@@ -687,7 +600,6 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
     private customcp.Buttonshine btsearch;
     private customcp.Buttonshine btsuauser;
     private customcp.Buttonshine btthem;
-    private customcp.Buttonshine btxacnhan;
     private customcp.Buttonshine btxoa;
     private javax.swing.JComboBox<String> ckchucvu;
     private javax.swing.JComboBox<String> ckgioitinh;

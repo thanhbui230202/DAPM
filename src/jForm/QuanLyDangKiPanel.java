@@ -159,7 +159,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbBienSoXe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbBienSoXe, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(37, 37, 37)
@@ -186,7 +186,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
         jDialog1.getContentPane().setLayout(jDialog1Layout);
         jDialog1Layout.setHorizontalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+            .addGroup(jDialog1Layout.createSequentialGroup()
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -570,17 +570,17 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
             {
                 JOptionPane.showMessageDialog(this, "Bản đăng kí chưa duyệt rồi!","Thông báo",JOptionPane.INFORMATION_MESSAGE);
             }
-            if (trangthai.equals("DD") && !bienSo.equals("null"))
+            if (trangthai.equals("DD") && !bienSo.equals("0"))
             {
                 JOptionPane.showMessageDialog(this, "Đã cấp biển số xe","Thông báo",JOptionPane.INFORMATION_MESSAGE);
                 System.out.println(trangthai + bienSo);
             }
-            if (trangthai.equals("DD") && bienSo.equals("null"))
+            if (trangthai.equals("DD") && bienSo.equals("0"))
             {
                 String idDangKi = String.valueOf(defaultTableModel.getValueAt(row, 0));
                 Random random = new Random();
                 int x = random.nextInt(89999) + 10000;
-                lbBienSoXe.setText("43A - "+ String.valueOf(x));
+                lbBienSoXe.setText( String.valueOf(x));
                 jDialog1.setLocationRelativeTo(null);
                 jDialog1.setVisible(true);
                 quanLyDangKy.updateBienSoXe(idDangKi, String.valueOf(x));

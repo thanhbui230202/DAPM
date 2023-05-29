@@ -504,7 +504,7 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
             btxacnhan.setVisible(true);
             userdangchinh= quanLyUser.getUserById(String.valueOf(iddel));
             setDatainPanel(userdangchinh);
-            txtCccd.setEnabled(false);
+            txtsodienthoai.setEnabled(false);
             txtpass.setEnabled(false);
             ckchucvu.setEnabled(false);
 //            setAvatar(userdangchinh);
@@ -565,6 +565,7 @@ public class QuanLyNhanVienPanel extends javax.swing.JPanel {
             userdangchinh.setGioiTinh((String) ckgioitinh.getSelectedItem());
 
             quanLyUser.updateUser(userdangchinh);
+            System.out.println("Update thành công");
             txtCccd.setEnabled(true);
             txtpass.setEnabled(true);
             ckchucvu.setEnabled(true);

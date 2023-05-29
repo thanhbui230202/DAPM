@@ -135,5 +135,21 @@ public class QuanLyThongTinXe {
  
     }
     
-    
+    public List<String> getIdThongTinXeById(String id)
+    {
+        List<String> allThongTinXe = new ArrayList<>();
+        Connection con = GetConnectServer.getConnection();
+        String sql = "select idThongTinXe from ThongTinXe where idAccount = '" +id +"'";
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            ResultSet rs =  preparedStatement.executeQuery();
+            while(rs.next())
+            {
+                allThongTinXe.add(rs.getString("idThongTinXe"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Lỗi tại lấy tên thông tin xe");
+        }
+        return allThongTinXe;
+    }
 }

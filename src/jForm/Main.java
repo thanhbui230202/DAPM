@@ -428,11 +428,24 @@ public class Main extends javax.swing.JFrame {
     private void thongkepnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thongkepnMouseClicked
         // TODO add your handling code here:
         // update user
-        container.removeAll();
-        container.setLayout(new CardLayout());
-        container.add(new ThongKePanel());
-        container.revalidate();
-        container.repaint();
+        user=quanLyUser.getUserById(user.getIdAccount());
+        if (user.getChucVu().equals("Admin"))
+        {
+            container.removeAll();
+            container.setLayout(new CardLayout());
+            container.add(new ThongKePanel());
+            container.revalidate();
+            container.repaint();
+        }
+        else 
+        {
+            user= quanLyUser.getUserById(user.getIdAccount());
+            container.removeAll();
+            container.setLayout(new CardLayout());
+            container.add(new QuanLyDangKiXe(user));
+            container.revalidate();
+            container.repaint();
+        }
         
         resetMau();
         chonThongKe();

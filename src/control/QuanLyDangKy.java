@@ -108,8 +108,8 @@ public class QuanLyDangKy {
     public void addDangKi(DangKiBienSo dk){
          Connection con = GetConnectServer.getConnection();
          String sql = "insert into DangKiBienSo(idDangKi,tenChuXe,namSinh, diaChi, cccdChuXe, sdtNLTT, soHoaDonDienTu, maSoThue,"
-                 + "maHoSoKhaiLePhiTruocBa,soToKhaiHaiQuan,soSeriKTCLXX,gmailChuXe,idThongTinXeNo,tinhTrangDangKi,idAccountDangKi,idAccountDuyet,bienSoXe"
-         + "VALUES(dbo.getIdDangKiNext(),?,?,?,?,?,?,?,?,?,?,?,?,'CD',?,?,?)";
+                 + "maHoSoKhaiLePhiTruocBa,soToKhaiHaiQuan,soSeriKTCLXX,gmailChuXe,idThongTinXeNo,tinhTrangDangKi,idAccountDangKi,idAccountDuyet,bienSoXe)  "
+         + "VALUES(dbo.getIdDangKiNext(),?,?,?,?,?,?,?,?,?,?,?,?,'CD',?,'','')";
          try {
            PreparedStatement preparedStatement = con.prepareStatement(sql);
            preparedStatement.setString(1, dk.getTenChuXe());
@@ -125,8 +125,6 @@ public class QuanLyDangKy {
            preparedStatement.setString(11, dk.getGmailChuXe());
            preparedStatement.setString(12, dk.getIdThongTinXeNo());
            preparedStatement.setString(13, dk.getIdAccountDangKi());
-           preparedStatement.setString(14, dk.getIdAccountDuyet());
-           preparedStatement.setString(15, dk.getBienSoXe());
            
            preparedStatement.execute();
         } catch (SQLException e) {

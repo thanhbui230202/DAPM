@@ -181,8 +181,8 @@ public class QuanLyUser {
     }
     
      public List<User> getAllUserid_name_sdt(String tim){
-       String sql="Select * from Account where (idAccount like '%" + tim + "%') "
-               + "or (hoVaTen like '%" + tim + "%') or (sdt like '%" + tim + "%') ";
+       String sql="Select * from Account where (idAccount like N'%" + tim + "%') "
+               + "or (hoVaTen like N'%" + tim + "%') or (sdt like N'%" + tim + "%') ";
        List<User> listXe=runSQLReturnListUser(sql);
        return listXe;
     }

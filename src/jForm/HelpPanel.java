@@ -87,6 +87,9 @@ public class HelpPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         ScrollPane = new javax.swing.JScrollPane();
         listcauhoi = new javax.swing.JPanel();
@@ -207,7 +210,7 @@ public class HelpPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Demo version 1.0");
 
-        jLabel12.setText("Copyright by WeePoo Team");
+        jLabel12.setText("Đồ án phần mềm");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -218,7 +221,7 @@ public class HelpPanel extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel12))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,17 +236,17 @@ public class HelpPanel extends javax.swing.JPanel {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Contact", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
-        jLabel2.setText("Đinh Văn Huy");
+        jLabel2.setText("Trần Hữu Tiến Đạt");
 
         jLabel3.setText("• 0766 349 552");
 
-        jLabel4.setText("• huydinhvan13@gmail.com");
+        jLabel4.setText("• tranhuutiendat@gmail.com");
 
-        jLabel6.setText("• leducđuyn.7122111@gmail.com");
+        jLabel6.setText("• bmt@gmail.com");
 
         jLabel7.setText("• 0961 640 689");
 
-        jLabel8.setText("Lê Đức Duy");
+        jLabel8.setText("Bùi Minh Thành");
 
         jLabel9.setText("• ricenguyen2310@gmail.com");
 
@@ -251,16 +254,24 @@ public class HelpPanel extends javax.swing.JPanel {
 
         jLabel11.setText("Nguyễn Trí  Đức");
 
+        jLabel28.setText("• hndat@gmail.com");
+
+        jLabel38.setText("Huỳnh Ngọc Đạt");
+
+        jLabel48.setText("• 0902 123 123");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel8)
                     .addComponent(jLabel11)
+                    .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,7 +280,8 @@ public class HelpPanel extends javax.swing.JPanel {
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
                             .addComponent(jLabel9)
-                            .addComponent(jLabel10))))
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -293,7 +305,13 @@ public class HelpPanel extends javax.swing.JPanel {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel28)
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -353,7 +371,7 @@ public class HelpPanel extends javax.swing.JPanel {
         jLabel1.setText("4. Thay đổi thông tin và xác nhận.");
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel14.setText("2. Nhân viên:");
+        jLabel14.setText("2. Người dùng:");
 
         jLabel19.setText("1. Vào tab Quản lí thông tin.");
 
@@ -428,7 +446,7 @@ public class HelpPanel extends javax.swing.JPanel {
         jPanel7.setBackground(new java.awt.Color(245, 245, 245));
 
         txtcauhoi2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtcauhoi2.setText("Cách lấy lại mật khẩu?");
+        txtcauhoi2.setText("Cách đăng kí biển số xe?");
 
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/xemcauhoi.png"))); // NOI18N
@@ -530,7 +548,7 @@ public class HelpPanel extends javax.swing.JPanel {
         jPanel8.setBackground(new java.awt.Color(245, 245, 245));
 
         txtcauhoi3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtcauhoi3.setText("Cách nhập thông tin xe mới ?");
+        txtcauhoi3.setText("Cách đăng kí thống tin xe?");
 
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/xemcauhoi.png"))); // NOI18N
@@ -632,7 +650,7 @@ public class HelpPanel extends javax.swing.JPanel {
         jPanel9.setBackground(new java.awt.Color(245, 245, 245));
 
         txtcauhoi4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtcauhoi4.setText("Cách tính tiền xe?");
+        txtcauhoi4.setText("Cách duyệt thông tin");
 
         jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/xemcauhoi.png"))); // NOI18N
@@ -734,7 +752,7 @@ public class HelpPanel extends javax.swing.JPanel {
         jPanel10.setBackground(new java.awt.Color(245, 245, 245));
 
         txtcauhoi5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtcauhoi5.setText("Những lưu ý cho nhân viên!");
+        txtcauhoi5.setText("Những lưu ý cho người dùng");
 
         jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/xemcauhoi.png"))); // NOI18N
@@ -879,7 +897,7 @@ public class HelpPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1016,6 +1034,7 @@ public class HelpPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -1026,6 +1045,7 @@ public class HelpPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
@@ -1036,6 +1056,7 @@ public class HelpPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;

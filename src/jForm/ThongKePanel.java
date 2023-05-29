@@ -43,17 +43,14 @@ public class ThongKePanel extends javax.swing.JPanel {
         barchart = new BarChart();
         lineChart = new LineChart();
         //add legend barchart
-        barchart.addLegend("Xe mô tô", new Color(245, 189, 135));
-        barchart.addLegend("Xe ô tô", new Color(135, 189, 245));
-        barchart.addLegend("Xe đạp", new Color(189, 135, 245));
-        barchart.addLegend("Xe bán tải", new Color(139, 229, 222));
-        barchart.addLegend("Xe gắn máy", new Color(255,51,102));
+        barchart.addLegend("Đơn đã duyệt", new Color(245, 189, 135));
+        barchart.addLegend("Đơn chưa duyệt", new Color(135, 189, 245));
+        barchart.addLegend("Đơn không duyệt", new Color(189, 135, 245));
+        
         //add legend linechart
-        lineChart.addLegend("Xe mô tô", new Color(245, 189, 135), new Color(245, 189, 135));
-        lineChart.addLegend("Xe ô tô", new Color(135, 189, 245), new Color(135, 189, 245));
-        lineChart.addLegend("Xe đạp", new Color(189, 135, 245), new Color(189, 135, 245));
-        lineChart.addLegend("Xe bán tải", new Color(139, 229, 222), new Color(139, 229, 222));
-        lineChart.addLegend("Xe gắn máy", new Color(255,51,102), new Color(255,51,102));
+        lineChart.addLegend("Đơn đã duyệt", new Color(245, 189, 135), new Color(245, 189, 135));
+        lineChart.addLegend("Đơn chưa duyệt", new Color(135, 189, 245), new Color(135, 189, 245));
+        lineChart.addLegend("Đơn không duyệt", new Color(189, 135, 245), new Color(189, 135, 245));
         
         setBarChart(barchart,2023);
         setLineChart(lineChart,2023);
@@ -408,11 +405,15 @@ public class ThongKePanel extends javax.swing.JPanel {
     public void setBarChart(BarChart chart,int nam)
     {
         chart.clear();
-
-//        chart.addData(new chartbar.ModelChart("Quý 1", quanLyXe.getDataChartDoanhThu(nam, 1)));
-//        chart.addData(new chartbar.ModelChart("Quý 2", quanLyXe.getDataChartDoanhThu(nam, 2)));
-//        chart.addData(new chartbar.ModelChart("Quý 3", quanLyXe.getDataChartDoanhThu(nam, 3)));
-//        chart.addData(new chartbar.ModelChart("Quý 4", quanLyXe.getDataChartDoanhThu(nam, 4)));
+        double a[] = {5,4,3};
+        double b[] = {1,2,2};
+        double c[] = {3,2,2};
+        double d[] = {4,2,5};
+        
+        chart.addData(new chartbar.ModelChart("Quý 1", a));
+        chart.addData(new chartbar.ModelChart("Quý 2", b));
+        chart.addData(new chartbar.ModelChart("Quý 3", c));
+        chart.addData(new chartbar.ModelChart("Quý 4", d));
 
     }
     
@@ -420,10 +421,14 @@ public class ThongKePanel extends javax.swing.JPanel {
     {
         lineChart.clear();
 
-//        lineChart.addData(new chartline.ModelChart("Quý 1", quanLyXe.getDataChartDoanhThu(nam, 1)));
-//        lineChart.addData(new chartline.ModelChart("Quý 2", quanLyXe.getDataChartDoanhThu(nam, 2)));
-//        lineChart.addData(new chartline.ModelChart("Quý 3", quanLyXe.getDataChartDoanhThu(nam, 3)));
-//        lineChart.addData(new chartline.ModelChart("Quý 4", quanLyXe.getDataChartDoanhThu(nam, 4)));
+        double a[] = {5,4,3};
+        double b[] = {1,2,2};
+        double c[] = {3,2,2};
+        double d[] = {4,2,5};
+        lineChart.addData(new chartline.ModelChart("Quý 1",a));
+        lineChart.addData(new chartline.ModelChart("Quý 2",b));
+        lineChart.addData(new chartline.ModelChart("Quý 3",c));
+        lineChart.addData(new chartline.ModelChart("Quý 4",d));
     }
     
 

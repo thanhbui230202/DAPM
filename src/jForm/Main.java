@@ -416,7 +416,7 @@ public class Main extends javax.swing.JFrame {
             user= quanLyUser.getUserById(user.getIdAccount());
             container.removeAll();
             container.setLayout(new CardLayout());
-            container.add(new QuanLyThongTinPanel(user));
+            container.add(new QuanLyThongTinXePanel(user));
             container.revalidate();
             container.repaint();
         }
@@ -441,15 +441,25 @@ public class Main extends javax.swing.JFrame {
     private void trogiuppnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trogiuppnMouseClicked
         // TODO add your handling code here:
         // update user
-        user=quanLyUser.getUserById(user.getIdAccount());
-        container.removeAll();
-        container.setLayout(new CardLayout());
-        container.add(new QuanLyNhanVienPanel(user));
-        container.revalidate();
-        container.repaint();
-        
+        if (user.getChucVu().equals("Admin"))
+        {
+            container.removeAll();
+            container.setLayout(new CardLayout());
+            container.add(new QuanLyNhanVienPanel(user));
+            container.revalidate();
+            container.repaint();
+        }
+        else 
+        {
+            user= quanLyUser.getUserById(user.getIdAccount());
+            container.removeAll();
+            container.setLayout(new CardLayout());
+            container.add(new HelpPanel());
+            container.revalidate();
+            container.repaint();
+        }
         resetMau();
-        chonThongKe();
+        chonTroGiup();
 
     }//GEN-LAST:event_trogiuppnMouseClicked
 

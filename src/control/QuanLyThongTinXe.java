@@ -33,20 +33,23 @@ public class QuanLyThongTinXe {
                 ttx.setMauSon(rs.getString("mauSon"));
                 ttx.setTheLoaiDangKi(rs.getString("theLoaiDangKi"));
                 ttx.setLiDo(rs.getString("liDo"));
+                ttx.setIdAccount(rs.getString("idAccount"));
+                ttx.setNhanHieu(rs.getString("nhanHieu"));
                 
+                listTTX.add(ttx);
             }
             return listTTX;
         }
         catch(SQLException e){
-            System.out.println("lỗi lấy toàn bộ ttx");
+            System.out.println("lỗi lấy toàn bộ ttx 1");
         }
         return null;
     }
     
     public void addTTX(ThongTinXe ttx){
         Connection con = GetConnectServer.getConnection();
-        String sql = "Insert into ThongTinXe(idThongTinXe,idLoaiXeNo, mauSon, nhanHieu, soLoai, theLoaiDangKi, liDo)"
-                + "values (dbo.getIdThongTinXeNext(),?,?,?,?,?,?)";
+        String sql = "Insert into ThongTinXe(idThongTinXe,idLoaiXeNo, mauSon, nhanHieu, soLoai, theLoaiDangKi, liDo, idAccount)"
+                + "values (dbo.getIdThongTinXeNext(),?,?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, ttx.getIdLoaiXeNo());
@@ -55,6 +58,7 @@ public class QuanLyThongTinXe {
             preparedStatement.setString(4,ttx.getSoLoai());
             preparedStatement.setString(5,ttx.getTheLoaiDangKi());
             preparedStatement.setString(6, ttx.getLiDo());
+            preparedStatement.setString(7, ttx.getIdAccount());
             
             preparedStatement.execute();
             
@@ -63,13 +67,39 @@ public class QuanLyThongTinXe {
         }
     }
     
-    public List<ThongTinXe> getAllTTXById(String id)
+    public List<ThongTinXe> getAllTTXByIdAccount(String id)
     {
-        String sql = "select * from ThongTinXe where idThongTinXe = " + id;
+        String sql = "select * from ThongTinXe where idAccount = '" +id+"'" ;
         List<ThongTinXe> listTTX = runSQLreturnListTTX(sql);
         return listTTX;
     }
     
+    public ThongTinXe getTTXById(String id)
+    {
+        String sql="Select * from ThongTinXe where idThongTinXe = ?";
+        ThongTinXe newTTX= new ThongTinXe();
+        Connection con = GetConnectServer.getConnection();
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            rs.next();      
+            newTTX.setIdLoaiXeNo(rs.getString("idLoaiXeNo"));
+            newTTX.setIdAccount(rs.getString("idAccount"));
+            newTTX.setIdThongTinXe(rs.getString("idThongTinXe"));
+            newTTX.setMauSon(rs.getString("mauSon"));
+            newTTX.setNhanHieu(rs.getString("nhanHieu"));
+            newTTX.setSoLoai(rs.getString("soLoai"));
+            newTTX.setTheLoaiDangKi(rs.getString("theLoaiDangKi"));
+            newTTX.setLiDo(rs.getString("liDo"));
+            
+            return newTTX;
+        } catch (SQLException e) {
+            System.out.println("lỗi tại get ttx by id");
+        }
+        return null;
+    }
     public void delTTX(String id){
         Connection con = GetConnectServer.getConnection();
         String sql = "DELETE ThongTinXe "
@@ -82,6 +112,27 @@ public class QuanLyThongTinXe {
         catch(SQLException e){
             System.out.println("lỗi tại xóa theo idTTX");
         }
+    }
+    
+    public void updateTTX(ThongTinXe ttx)
+    {
+        Connection con = GetConnectServer.getConnection();
+        String sql = "Update ThongTinXe set idLoaiXeNo = ?, mauSon = ?, nhanHieu =?, soLoai =?,theLoaiDangKi=?,liDo=? where idThongTinXe = ?";
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, ttx.getIdLoaiXeNo());
+            preparedStatement.setString(2, ttx.getMauSon());
+            preparedStatement.setString(3, ttx.getNhanHieu());
+            preparedStatement.setString(4, ttx.getSoLoai());
+            preparedStatement.setString(5, ttx.getTheLoaiDangKi());
+            preparedStatement.setString(6, ttx.getLiDo());
+            preparedStatement.setString(7, ttx.getIdThongTinXe());
+            
+            preparedStatement.execute();
+        } catch (SQLException e) {
+             System.out.println("Sai tại cập nhật dữ liệu ttx");
+        }
+ 
     }
     
     

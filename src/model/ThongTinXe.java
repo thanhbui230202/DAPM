@@ -16,11 +16,12 @@ public class ThongTinXe {
     private String soLoai;
     private String theLoaiDangKi;
     private String liDo;
+    private String idAccount;
 
     public ThongTinXe() {
     }
 
-    public ThongTinXe(String idThongTinXe, String idLoaiXeNo, String mauSon, String nhanHieu, String soLoai, String theLoaiDangKi, String liDo) {
+    public ThongTinXe(String idThongTinXe, String idLoaiXeNo, String mauSon, String nhanHieu, String soLoai, String theLoaiDangKi, String liDo, String idAccount) {
         this.idThongTinXe = idThongTinXe;
         this.idLoaiXeNo = idLoaiXeNo;
         this.mauSon = mauSon;
@@ -28,8 +29,18 @@ public class ThongTinXe {
         this.soLoai = soLoai;
         this.theLoaiDangKi = theLoaiDangKi;
         this.liDo = liDo;
+        this.idAccount = idAccount;
     }
 
+    public String getIdAccount() {
+        return idAccount;
+    }
+
+    public void setIdAccount(String idAccount) {
+        this.idAccount = idAccount;
+    }
+
+    
     public String getIdThongTinXe() {
         return idThongTinXe;
     }

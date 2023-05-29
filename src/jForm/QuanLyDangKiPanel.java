@@ -105,6 +105,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         txtsearch = new javax.swing.JTextField();
         btsearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -293,6 +294,11 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
                 ckboxkhongduyetItemStateChanged(evt);
             }
         });
+        ckboxkhongduyet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ckboxkhongduyetActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 51));
         jPanel2.setLayout(new java.awt.GridLayout(1, 0, 30, 0));
@@ -352,6 +358,11 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
                 ckbDaDuyetItemStateChanged(evt);
             }
         });
+        ckbDaDuyet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ckbDaDuyetActionPerformed(evt);
+            }
+        });
 
         buttonshine3.setBackground(new java.awt.Color(51, 253, 15));
         buttonshine3.setText("Cấp biển số xe");
@@ -373,8 +384,9 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane1)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(ckbDaDuyet, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(ckboxchuaduyet, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(ckboxkhongduyet)
@@ -412,15 +424,6 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ckboxkhongduyetItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckboxkhongduyetItemStateChanged
-         settabledataif();
-    }//GEN-LAST:event_ckboxkhongduyetItemStateChanged
-
-    private void ckboxchuaduyetItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckboxchuaduyetItemStateChanged
-        // TODO add your handling code here:
-        settabledataif();
-    }//GEN-LAST:event_ckboxchuaduyetItemStateChanged
 
     private void txtsearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtsearchFocusGained
         // TODO add your handling code here:
@@ -464,6 +467,8 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
         ckbDaDuyet.setSelected(true);
         ckboxchuaduyet.setSelected(true);
         ckboxkhongduyet.setSelected(true);
+        defaultTableModel.setRowCount(0);
+        setDataTable(quanLyDangKy.getAllDangKi());
         jScrollPane1.getVerticalScrollBar().setValue(0);
     }//GEN-LAST:event_buttonshine4ActionPerformed
 
@@ -492,7 +497,28 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
 
     private void buttonshine2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonshine2ActionPerformed
         // TODO add your handling code here:
-        
+        int row = tbDangKi.getSelectedRow();
+        if(row == -1)
+        {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn bản đăng kí trước!","Lỗi",JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            String trangthai = String.valueOf(tbDangKi.getValueAt(row, 7));
+            if (trangthai.equals("DD"))
+            {
+                String idDangKi = String.valueOf(tbDangKi.getValueAt(row, 0));
+                dangKiBienSo = new DangKiBienSo();
+                dangKiBienSo = quanLyDangKy.getDangKiById(idDangKi);
+                ThanhToanFrame inframe=new ThanhToanFrame(dangKiBienSo);
+                inframe.setVisible(true);
+                inframe.setAlwaysOnTop(true);
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(this, "Bản đăng kí chưa được duyệt!","Thông báo",JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_buttonshine2ActionPerformed
 
     private void lbBienSoXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBienSoXeMouseClicked
@@ -525,11 +551,6 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
     private void kGradientPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_kGradientPanel1MouseClicked
-
-    private void ckbDaDuyetItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckbDaDuyetItemStateChanged
-        // TODO add your handling code here:
-        settabledataif();
-    }//GEN-LAST:event_ckbDaDuyetItemStateChanged
 
     private void buttonshine3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonshine3ActionPerformed
         // TODO add your handling code here:
@@ -568,6 +589,29 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buttonshine3ActionPerformed
 
+    private void ckboxkhongduyetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckboxkhongduyetActionPerformed
+        // TODO add your handling code here:
+        settabledataif();
+    }//GEN-LAST:event_ckboxkhongduyetActionPerformed
+
+    private void ckboxkhongduyetItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckboxkhongduyetItemStateChanged
+        settabledataif();
+    }//GEN-LAST:event_ckboxkhongduyetItemStateChanged
+
+    private void ckboxchuaduyetItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckboxchuaduyetItemStateChanged
+        // TODO add your handling code here:
+        settabledataif();
+    }//GEN-LAST:event_ckboxchuaduyetItemStateChanged
+
+    private void ckbDaDuyetItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckbDaDuyetItemStateChanged
+        // TODO add your handling code here:
+        settabledataif();
+    }//GEN-LAST:event_ckbDaDuyetItemStateChanged
+
+    private void ckbDaDuyetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckbDaDuyetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ckbDaDuyetActionPerformed
+
    
     public void settabledataif(){
         if (ckbDaDuyet.isSelected())
@@ -575,15 +619,35 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
             defaultTableModel.setRowCount(0);
             setDataTable(quanLyDangKy.getAllDangKi("DD"));
         }
-        else if(ckboxchuaduyet.isSelected())
+        if(ckboxchuaduyet.isSelected())
         {
             defaultTableModel.setRowCount(0);
             setDataTable(quanLyDangKy.getAllDangKi("CD"));
         }
-        else if(ckboxchuaduyet.isSelected())
+        if(ckboxkhongduyet.isSelected())
         {
             defaultTableModel.setRowCount(0);
             setDataTable(quanLyDangKy.getAllDangKi("KD"));
+        }
+        if(ckbDaDuyet.isSelected() && ckboxchuaduyet.isSelected() && ckboxkhongduyet.isSelected())
+        {
+            defaultTableModel.setRowCount(0);
+            setDataTable(quanLyDangKy.getAllDangKi());
+        }
+        if(ckbDaDuyet.isSelected() && ckboxchuaduyet.isSelected())
+        {
+            defaultTableModel.setRowCount(0);
+            setDataTable(quanLyDangKy.getAllDangKi("DD","CD"));
+        }
+        if(ckbDaDuyet.isSelected() && ckboxkhongduyet.isSelected())
+        {
+            defaultTableModel.setRowCount(0);
+            setDataTable(quanLyDangKy.getAllDangKi("DD","KD"));
+        }
+        if(ckboxchuaduyet.isSelected() && ckboxkhongduyet.isSelected())
+        {
+            defaultTableModel.setRowCount(0);
+            setDataTable(quanLyDangKy.getAllDangKi("KD","CD"));
         }
     }
     
@@ -652,6 +716,7 @@ public class QuanLyDangKiPanel extends javax.swing.JPanel {
     private customcp.Buttonshine btDuyet;
     private customcp.Buttonshine btKhongDuyet;
     private javax.swing.JButton btsearch;
+    private javax.swing.ButtonGroup buttonGroup1;
     private customcp.Buttonshine buttonshine2;
     private customcp.Buttonshine buttonshine3;
     private customcp.Buttonshine buttonshine4;

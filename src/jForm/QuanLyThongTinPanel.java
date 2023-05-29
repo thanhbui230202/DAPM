@@ -712,6 +712,7 @@ public class QuanLyThongTinPanel extends javax.swing.JPanel {
         
         txtquequan.setText(user.getQueQuan());    
         txtpass.setText("******");
+        txtCccd.setText(user.getCccd());
         
     }
     

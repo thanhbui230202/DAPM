@@ -61,6 +61,26 @@ public class QuanLyDangKy {
         return listDK;
     }
     
+    public List<DangKiBienSo> getAllDangKi(String trangthai1, String trangthai2){
+        String sql = "";
+        if(trangthai1.equals("DD") & trangthai2.equals("KD"))
+        {
+            sql = "select * from DangKiBienSo where tinhTrangDangKi = 'DD' or tinhTrangDangKi = 'KD'";
+        }
+        else
+            if(trangthai1.equals("DD") && trangthai2.equals("CD"))
+            {
+                sql = "select * from DangKiBienSo where tinhTrangDangKi = 'DD' or tinhtrangdangki = 'CD'";
+            }
+            else
+            if(trangthai1.equals("KD") && trangthai2.equals("CD"))
+            {
+                sql = "select * from DangKiBienSo where tinhTrangDangKi = 'KD' or tinhtrangdangki = 'CD'";
+            }
+        List<DangKiBienSo> listDangKi = runSQLReturnListDangKi(sql);
+        return listDangKi;
+    }
+
     public List<DangKiBienSo> getAllDangKi(String trangthai){
         String sql = "";
         if(trangthai.equals("DD"))
